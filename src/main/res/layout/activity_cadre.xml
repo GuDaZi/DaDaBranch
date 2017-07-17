@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="23dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/assess_month"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_assess_month"
+            android:layout_width="60dp"
+            android:layout_height="16dp"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/assess_shape"
+            android:textColor="@color/black"
+            android:drawableRight="@mipmap/inptime"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshGridView
+        android:id="@+id/myAssess_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="10dp"
+        android:numColumns="1"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:verticalSpacing="10dp"
+        app:ptrShowIndicator="false"
+        ptr:ptrHeaderTextAppearance="?android:attr/textAppearanceSmall"
+        ptr:ptrHeaderTextColor="@color/black" />
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/toolbar_padding_top"
+    android:background="@mipmap/title"
+    android:minHeight="?attr/actionBarSize"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/back"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/eighteen" />
+
+        <LinearLayout
+            android:id="@+id/lin_back"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentLeft="true"></LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_title"
+            android:layout_alignBottom="@+id/tv_title"
+            android:layout_marginRight="12dp"
+            android:text="@string/right_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/fifteen"
+            android:visibility="gone"
+            android:layout_alignParentRight="true" />
+
+        <ImageView
+            android:id="@+id/iv_soso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="17dp"
+            android:src="@mipmap/soso"
+            android:visibility="gone"
+            android:layout_alignParentRight="true" />
+
+        <LinearLayout
+            android:id="@+id/lin_right"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"></LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

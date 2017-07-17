@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout"></include>
+
+    <LinearLayout
+        android:id="@+id/lin_cadre"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/cadre_assess_manager"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/lin_depart"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/depart_assess_manager"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/lin_assess_set"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/assess_set"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+
+</LinearLayout>

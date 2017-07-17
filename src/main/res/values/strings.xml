@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">一体化</string>
+
+    <string name="loadDatas">加载中，请稍后...</string>
+
+    <string name="internet_not_connect">网络访问失败，请连接网络</string>
+
+    <string name="title">一体化</string>
+    <string name="right_title">编辑</string>
+
+    <string name="cadre_assess_manager">干部一体化考核管理</string>
+    <string name="depart_assess_manager">部门一体化考核管理</string>
+    <string name="assess_set">一体化考核设置</string>
+
+    <string name="assess_month">考核月份</string>
+
+
+
+
+
+</resources>

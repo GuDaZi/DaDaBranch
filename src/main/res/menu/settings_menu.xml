@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/reuse"
+        android:title="复用考核信息"/>
+    <item
+        android:id="@+id/volume"
+        android:title="批量设置任务"/>
+    <item
+        android:id="@+id/dynamic"
+        android:title="增加动态任务"/>
+</menu>
