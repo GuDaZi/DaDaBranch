@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout"></include>
+
+    <LinearLayout
+        android:id="@+id/self_assess"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/self_assess"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/self_evaluate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/self_evaluate"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/cadre_assess_approve"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/cadre_assess_approve"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/integrated_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/integrated_search"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/self_early_warning"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/self_early_warning"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/cadre_assess_gather"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/cadre_assess_gather_search"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/cadre_score_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/cadre_score_search"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+    <LinearLayout
+        android:id="@+id/cadre_risk_search"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="17dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="4dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="23dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/technology" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="13dp"
+            android:text="@string/cadre_risk_search"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fifteen" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray3"></View>
+
+
+</LinearLayout>

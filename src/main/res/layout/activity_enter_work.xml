@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/lin_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="14dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/word_standard"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <TextView
+                    android:id="@+id/tv_word_standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="7dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/realistic_person"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <TextView
+                    android:id="@+id/tv_realistic_person"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="7dp"
+                    android:layout_marginTop="7dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/depart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/tv_depart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="点击选择"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/find_address_type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/tv_find_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="点击选择"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/find_address"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/tv_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="点击选择"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/risk_type"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/tv_risk_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="点击选择"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/risk"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/tv_risk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="点击选择"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/examine_time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/tv_examine_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="点击选择"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/depart_examine"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_sure_examine"
+                        style="@style/depart_risk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="是"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sixteen" />
+
+                    <RadioButton
+                        android:id="@+id/rb_no_examine"
+                        style="@style/depart_risk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:checked="true"
+                        android:text="否"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sixteen" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/routine_tasks"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <TextView
+                    android:id="@+id/tv_routine_tasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dynamic_tasks"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <TextView
+                    android:id="@+id/tv_dynamic_tasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/totals"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <TextView
+                    android:id="@+id/tv_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="7dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/examine_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sixteen" />
+
+                <EditText
+                    android:id="@+id/et_examine_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/assess_shape"
+                    android:gravity="left"
+                    android:padding="5dp"
+                    android:textColor="@color/text_gray"
+                    android:textSize="@dimen/sixteen" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_submit"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="26dp"
+                    android:background="@mipmap/blue_button"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/submit"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/nineteen" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

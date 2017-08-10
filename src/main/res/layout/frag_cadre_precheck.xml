@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+
+    android:orientation="vertical">
+    <!--android:descendantFocusability="blocksDescendants"-->
+
+    <include layout="@layout/layout_search_filter"></include>
+
+    <ListView
+        android:id="@+id/precheck_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/ten"
+        android:divider="@color/line_gray"
+        android:listSelector="@drawable/shape_cadre_nodivider"
+        android:scrollbars="none" />
+
+</LinearLayout>

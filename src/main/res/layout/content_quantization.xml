@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="@string/cadre_name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_quantization_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadre_name"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="@string/cadre_jobName"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_quantization_jobName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadre_name"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="@string/cadre_post"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_quantization_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadre_name"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="@string/cadre_depart"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_quantization_depart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadre_name"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:text="@string/status"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_quantization_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cadre_name"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="14dp"
+        android:background="@color/line_gray"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        android:gravity="right|center_vertical">
+
+        <TextView
+            android:id="@+id/tv_quantization_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="26dp"
+            android:background="@mipmap/blue_button"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/check"
+            android:textColor="@color/white"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

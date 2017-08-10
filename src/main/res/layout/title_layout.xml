@@ -66,9 +66,10 @@
             android:id="@+id/lin_right"
             android:layout_width="55dp"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
             android:orientation="horizontal"
-            android:layout_alignParentRight="true"></LinearLayout>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"></LinearLayout>
 
     </RelativeLayout>
 

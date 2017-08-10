@@ -5,7 +5,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.xianzhi.integration.R;
+import com.xianzhi.integration.activity.settings.SettingsActivity;
 import com.xianzhi.integration.base.BaseActivity;
+import com.xianzhi.integration.bean.PermissionBean;
+import com.xianzhi.integration.bean.UserInfoBean;
 
 import butterknife.BindView;
 
@@ -24,6 +27,12 @@ public class StartActivity extends BaseActivity {
     @BindView(R.id.lin_assess_set)
     LinearLayout lin_set;
 
+    private String userInfo;
+    private String permission;
+
+    private UserInfoBean userInfoBean;
+    private PermissionBean permissionBean;
+
     @Override
     protected void onCreateView(Bundle saveInstanceState) {
         setContentView(R.layout.activity_start);
@@ -31,6 +40,13 @@ public class StartActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+//        BaseApplication.token = getIntent().getStringExtra("token");
+//        BaseApplication.url = getIntent().getStringExtra("webUrl");
+//        userInfo = getIntent().getStringExtra("authorizedUser");
+//        permission = getIntent().getStringExtra("permission");
+//
+//        userInfoBean = FastJsonUtil.getObject(userInfo, UserInfoBean.class);
+//        permissionBean = FastJsonUtil.getObject(userInfo, PermissionBean.class);
 
     }
 
@@ -45,7 +61,8 @@ public class StartActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.lin_cadre:
-                start_activity(CadreActivity.class);
+                start_activity(MainActivity.class);
+//                start_activity(MainActivity.class, "permission", JSON.toJSONString(permission));
                 break;
             case R.id.lin_depart:
 

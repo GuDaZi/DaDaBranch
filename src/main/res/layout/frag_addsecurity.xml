@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/shape_cadre_divider"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择年份: "
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen" />
+
+            <EditText
+                android:id="@+id/ed_pickYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:paddingTop="2dp"
+                android:hint="请输入年份"
+                android:textColor="@color/text_gray"
+                android:background="@drawable/shape_cadre_edittext"
+                android:textSize="@dimen/fourteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="输入名称: "
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen" />
+
+            <EditText
+                android:id="@+id/ed_inputName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:paddingTop="2dp"
+                android:hint="请输入表的名称"
+                android:textColor="@color/text_gray"
+                android:background="@drawable/shape_cadre_edittext"
+                android:textSize="@dimen/fourteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建方式: "
+                android:textColor="@color/black"
+                android:textSize="@dimen/fourteen" />
+
+            <CheckBox
+                android:id="@+id/cb_reCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重新创建"
+                android:background="@color/white"
+                android:textSize="@dimen/fourteen" />
+
+            <CheckBox
+                android:id="@+id/cb_copyCreate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="复制创建"
+                android:background="@color/white"
+                android:textSize="@dimen/fourteen" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_pickCopyYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="7dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择要复制的年份: "
+                android:textSize="@dimen/fourteen" />
+
+            <EditText
+                android:id="@+id/ed_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入表的年份"
+                android:textSize="@dimen/fourteen" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="9dp"
+            android:background="@color/line_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:background="@mipmap/blue_button"
+                android:gravity="center"
+                android:text="提交"
+                android:textColor="@color/white"
+                android:textSize="@dimen/fourteen" />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/blue_button"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:textSize="@dimen/fourteen" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

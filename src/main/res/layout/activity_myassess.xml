@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_layout"></include>
+
+    <include layout="@layout/second_title_layout"></include>
+
+    <ListView
+        android:id="@+id/myAssess_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="10dp"
+        android:divider="@color/background"
+        android:layout_marginTop="9dp"
+        android:dividerHeight="9dp"
+        android:listSelector="@color/white"
+        android:scrollbars="none"></ListView>
+
+</LinearLayout>

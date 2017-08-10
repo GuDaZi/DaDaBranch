@@ -17,4 +17,26 @@
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/pop_push_up_in</item>
+        <item name="android:windowExitAnimation">@anim/pop_push_down_out</item>
+    </style>
+
+    <!--RadioButton-->
+    <style name="depart_risk" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/enter_work_selector</item>
+        <item name="android:paddingLeft">5dp</item>
+    </style>
+
+    <!--CheckBox-->
+    <style name="myAssessWork" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/myassess_work_selector</item>
+        <item name="android:paddingLeft">5dp</item>
+    </style>
+
+    <style name="SettingsCB" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_checkbox</item>
+        <item name="android:paddingLeft">5dp</item>
+    </style>
+
 </resources>

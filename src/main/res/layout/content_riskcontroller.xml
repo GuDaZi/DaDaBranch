@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/riskType"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_controller_riskType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/riskType"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/risk"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_controller_risk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/riskType"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_marginTop="14dp"
+        android:background="@mipmap/work_background"
+        android:text="@string/risk_controller"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fourteen" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postManager"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_controller_postManager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/riskType"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/workStandard"
+            android:textColor="@color/black"
+            android:textSize="@dimen/fourteen" />
+
+        <TextView
+            android:id="@+id/tv_controller_workStandard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="@string/riskType"
+            android:textColor="@color/text_gray"
+            android:textSize="@dimen/fourteen" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
