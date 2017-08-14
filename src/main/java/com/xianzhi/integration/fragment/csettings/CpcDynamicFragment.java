@@ -3,6 +3,7 @@ package com.xianzhi.integration.fragment.csettings;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,6 @@ import com.xianzhi.integration.R;
 import com.xianzhi.integration.activity.settings.CpcActivity;
 import com.xianzhi.integration.adapter.settings.CpcDynamicAdapter;
 import com.xianzhi.integration.bean.CpcDynamicBean;
-import com.xianzhi.integration.bean.CpcMultiBean;
 import com.xianzhi.integration.bean.DepartBean;
 import com.xianzhi.integration.model.base.BaseResponesBean;
 import com.xianzhi.integration.model.base.ModelCompleteCallback;
@@ -37,7 +38,6 @@ import com.zhy.tree.bean.TreeListViewAdapter;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -58,6 +58,8 @@ public class CpcDynamicFragment extends BaseFragment implements ModelCompleteCal
     ImageView ivFilter;
     @BindView(R.id.rl_switch)
     RelativeLayout rlSwitch;
+    @BindView(R.id.rl_switch2)
+    RelativeLayout rlSwitch2;
     @BindView(R.id.fl_switch)
     FrameLayout flSwitch;
     @BindView(R.id.tv_setMonth)
@@ -75,6 +77,9 @@ public class CpcDynamicFragment extends BaseFragment implements ModelCompleteCal
     @BindView(R.id.dy_listview)
     ListView listView;
     Unbinder unbinder;
+    @BindView(R.id.sp_laomo)
+    Spinner spLaomo;
+    Unbinder unbinder1;
     private CpcDynamicBean cpcDynamicBean;
     private CpcDynamicAdapter adapter;
     private TextView tvSubmit;
@@ -116,10 +121,14 @@ public class CpcDynamicFragment extends BaseFragment implements ModelCompleteCal
             tvMonth.setText(year + "-" + month);
         }
 
+        tvDepart.setBackground(spLaomo.getBackground());
         adapter = new CpcDynamicAdapter(getActivity(), this);
         View footerView = LayoutInflater.from(getActivity()).inflate(R.layout.footer_cpc_set, null, false);
         tvSubmit = (TextView) footerView.findViewById(R.id.tv_submit);
         tvReturn = (TextView) footerView.findViewById(R.id.tv_return);
+
+        listView.setDivider(null);
+        listView.setSelector(new ColorDrawable());
         listView.addFooterView(footerView);
         listView.setAdapter(adapter);
 
@@ -158,11 +167,15 @@ public class CpcDynamicFragment extends BaseFragment implements ModelCompleteCal
             case R.id.fl_switch:
                 if (isShow == false) {
                     llFilter.setVisibility(View.VISIBLE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_filter_noradius);
+                    flSwitch.setBackgroundResource(R.drawable.shape_filter_yellow_noradius);
+                    rlSwitch.setVisibility(View.GONE);
+                    rlSwitch2.setVisibility(View.VISIBLE);
                     isShow = true;
                 } else {
+                    flSwitch.setBackgroundResource(R.drawable.shape_cset_white_divider);
                     llFilter.setVisibility(View.GONE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_cadre_divider);
+                    rlSwitch2.setVisibility(View.GONE);
+                    rlSwitch.setVisibility(View.VISIBLE);
                     isShow = false;
                 }
                 break;
@@ -348,5 +361,13 @@ public class CpcDynamicFragment extends BaseFragment implements ModelCompleteCal
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // TODO: inflate a fragment view
+        View rootView = super.onCreateView(inflater, container, savedInstanceState);
+        unbinder1 = ButterKnife.bind(this, rootView);
+        return rootView;
     }
 }

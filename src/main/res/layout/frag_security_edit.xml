@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:padding="1dp"
-        android:background="@drawable/shape_cadre_divider"
+        android:background="@drawable/shape_cset_white_divider"
         android:orientation="vertical">
 
         <LinearLayout
@@ -55,23 +55,19 @@
                 android:layout_marginBottom="14dp"
                 android:background="@drawable/shape_searchdept">
 
-                <TextView
-                    android:id="@+id/tv_cadre"
+                <Spinner
+                    android:id="@+id/sp_laomo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_margin="7dp"
-                    android:hint="选择表格"
-                    android:textSize="14sp" />
+                    android:visibility="gone"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="20dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="7dp"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/filter_pulldown_" />
+                <TextView
+                    android:id="@+id/tv_cadre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/switch_item"
+                    android:textSize="@dimen/fourteen"
+                    android:layout_margin="@dimen/seven"/>
 
             </RelativeLayout>
 

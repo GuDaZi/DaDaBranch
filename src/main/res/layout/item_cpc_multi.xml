@@ -10,7 +10,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:orientation="horizontal"
-        android:background="@drawable/shape_cadre_divider">
+        android:background="@drawable/shape_cset_white_divider">
 
         <LinearLayout
             android:layout_width="wrap_content"

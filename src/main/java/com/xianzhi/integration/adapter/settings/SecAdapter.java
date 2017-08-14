@@ -22,7 +22,6 @@ import butterknife.ButterKnife;
 
 public class SecAdapter extends BaseAdapter implements View.OnClickListener{
 
-    private static final String TAG = "SFragHD";
     private List<SecurityRisksBean.PageBean.ListBean> data = new ArrayList<>();
     private Activity activity;
     private SecurityClickListerner listener;

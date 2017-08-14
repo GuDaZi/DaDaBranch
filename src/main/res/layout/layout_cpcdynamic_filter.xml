@@ -5,14 +5,14 @@
     android:layout_marginLeft="@dimen/ten"
     android:layout_marginRight="@dimen/ten"
     android:layout_marginTop="@dimen/ten"
-    android:background="@drawable/shape_cadre_divider"
+    android:background="@drawable/shape_cset_white_divider"
     android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/fl_switch"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_cadre_divider">
+        android:background="@drawable/shape_cset_white_divider">
 
         <RelativeLayout
             android:id="@+id/rl_switch"
@@ -46,6 +46,36 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/rl_switch2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="7dp"
+            android:layout_marginTop="7dp"
+            android:visibility="gone">
+
+            <Spinner
+                android:id="@+id/sp_laomo"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/up_info" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
     </FrameLayout>
 
     <LinearLayout

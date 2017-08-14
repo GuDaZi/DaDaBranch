@@ -4,12 +4,11 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -28,7 +27,6 @@ import com.xianzhi.integration.adapter.settings.PositionNameAdapter;
 import com.xianzhi.integration.adapter.settings.PostNameAdapter;
 import com.xianzhi.integration.bean.CpcMultiBean;
 import com.xianzhi.integration.bean.DepartBean;
-import com.xianzhi.integration.bean.SetSelfWorkBean;
 import com.xianzhi.integration.model.base.BaseResponesBean;
 import com.xianzhi.integration.model.base.ModelCompleteCallback;
 import com.xianzhi.integration.model.base.SettingsModelFactory;
@@ -65,6 +63,8 @@ public class CpcMultiFragment extends BaseFragment implements ModelCompleteCallb
     ImageView ivFilter;
     @BindView(R.id.rl_switch)
     RelativeLayout rlSwitch;
+    @BindView(R.id.rl_switch2)
+    RelativeLayout rlSwitch2;
     @BindView(R.id.fl_switch)
     FrameLayout flSwitch;
     @BindView(R.id.tv_setMonth)
@@ -159,6 +159,8 @@ public class CpcMultiFragment extends BaseFragment implements ModelCompleteCallb
 
         postAdapter = new PostNameAdapter(getActivity());
         spPostName.setAdapter(postAdapter);
+        //将textView的样式修改到和Spinner一致
+        tvDepart.setBackground(spPostName.getBackground());
         spPostName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -200,11 +202,15 @@ public class CpcMultiFragment extends BaseFragment implements ModelCompleteCallb
             case R.id.fl_switch:
                 if (isShow == false) {
                     llFilter.setVisibility(View.VISIBLE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_filter_noradius);
+                    flSwitch.setBackgroundResource(R.drawable.shape_filter_yellow_noradius);
+                    rlSwitch.setVisibility(View.GONE);
+                    rlSwitch2.setVisibility(View.VISIBLE);
                     isShow = true;
                 } else {
+                    flSwitch.setBackgroundResource(R.drawable.shape_cset_white_divider);
                     llFilter.setVisibility(View.GONE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_cadre_divider);
+                    rlSwitch2.setVisibility(View.GONE);
+                    rlSwitch.setVisibility(View.VISIBLE);
                     isShow = false;
                 }
                 break;
@@ -250,30 +256,14 @@ public class CpcMultiFragment extends BaseFragment implements ModelCompleteCallb
                     setData(result);
                     break;
                 case SettingsModelFactory.CPC_MULTI_UP:
-                    View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_success, null, false);
-                    new AlertDialog.Builder(getActivity())
-                            .setView(view)
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    getActivity().onBackPressed();
-                                }
-                            })
-                            .create()
-                            .show();
-                    break;
                 case SettingsModelFactory.CPC_MULTI_ADD:
-                    View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_success, null, false);
-                    new AlertDialog.Builder(getActivity())
-                            .setView(view1)
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    getActivity().onBackPressed();
-                                }
-                            })
-                            .create()
-                            .show();
+                    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getActivity().onBackPressed();
+                        }
+                    };
+                    SettingsDialog dialog = new SettingsDialog("设置成功",listener);
                     break;
             }
         }
@@ -285,25 +275,17 @@ public class CpcMultiFragment extends BaseFragment implements ModelCompleteCallb
     /**
      * 添加新的动态任务条目
      */
+
     public void addDynamicItem() {
-        //这里要添加一个AlterDialog
-        final View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_dynamic, null, false);
-        final EditText itemName = (EditText) view.findViewById(R.id.ed_itemName);
-        final EditText itemTaskNum = (EditText) view.findViewById(R.id.ed_dynamicTask);
-        new AlertDialog.Builder(getActivity())
-                .setTitle("添加动态任务")
-                .setView(view)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        newItem = itemName.getText().toString().trim();
-                        newItemNum = itemTaskNum.getText().toString().trim();
-                        updateNewItem(newItem, newItemNum);
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create()
-                .show();
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                newItem = editName.getText().toString().trim();
+                newItemNum = editCount.getText().toString().trim();
+                updateNewItem(newItem, newItemNum);
+            }
+        };
+        SettingsDialog dialog = new SettingsDialog("添加动态任务","输入任务名称",listener);
     }
 
     /**
@@ -614,4 +596,46 @@ public class CpcMultiFragment extends BaseFragment implements ModelCompleteCallb
         model.excuteParams(new CpcMultiBean());
     }
 
+    /**
+     * AlertDialog,带次数的
+     */
+    private EditText editName;
+    private EditText editCount;
+    private class SettingsDialog {
+        //dialog带次数
+        public SettingsDialog(String title, String hint, DialogInterface.OnClickListener listener){
+            View edView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_dynamic, null, false);
+            editName = (EditText) edView.findViewById(R.id.ed_cus);
+            editName.setHint(hint);
+            editName.setBackgroundResource(R.drawable.shape_cadre_edittext);
+            editCount = (EditText) edView.findViewById(R.id.ed_dynamicTask);
+            editCount.setBackgroundResource(R.drawable.shape_cadre_edittext);
+
+            android.support.v7.app.AlertDialog dialog = new android.support.v7.app.AlertDialog.Builder(getActivity())
+                    .setTitle(title)
+                    .setView(edView)
+                    .setPositiveButton("确定", listener)
+                    .setNegativeButton("取消", null)
+                    .show();
+
+            Button mPositiveBtn = dialog.getButton(android.support.v7.app.AlertDialog.BUTTON_POSITIVE);
+            mPositiveBtn.setTextColor(getActivity().getResources().getColor(R.color.orange));
+
+            Button mNegativeBtn = dialog.getButton(android.support.v7.app.AlertDialog.BUTTON_NEGATIVE);
+            mNegativeBtn.setTextColor(getActivity().getResources().getColor(R.color.blue1));
+        }
+        //dialog单按钮的提示框
+        public SettingsDialog(String content, DialogInterface.OnClickListener listener ) {
+            View sucView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_success, null, false);
+            TextView tvContent = (TextView) sucView.findViewById(R.id.tv_content);
+            tvContent.setText(content);
+            android.support.v7.app.AlertDialog dialog = new android.support.v7.app.AlertDialog.Builder(getActivity())
+                    .setView(sucView)
+                    .setPositiveButton("确定", listener)
+                    .show();
+
+            Button mPositiveBtn = dialog.getButton(android.support.v7.app.AlertDialog.BUTTON_POSITIVE);
+            mPositiveBtn.setTextColor(getActivity().getResources().getColor(R.color.orange));
+        }
+    }
 }

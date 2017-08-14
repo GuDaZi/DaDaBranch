@@ -9,6 +9,9 @@ import com.xianzhi.integration.model.base.BaseHttpAsyncModel;
 import com.xianzhi.integration.model.base.BaseResponesBean;
 import com.xianzhi.integration.model.base.ModelCompleteCallback;
 
+import org.apache.http.NameValuePair;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,8 +20,10 @@ import java.util.List;
  */
 
 public class CpcDetailRefreshPresenter extends BaseHttpAsyncModel<BaseResponesBean> {
+
     private static final String TAG = "SFragHD";
     private String id;
+    private List<NameValuePair> params = new ArrayList<>();
 
     public CpcDetailRefreshPresenter(int model_id, Context context, ModelCompleteCallback<BaseResponesBean> callback, List<String> params) {
         super(context, callback);
@@ -32,10 +37,9 @@ public class CpcDetailRefreshPresenter extends BaseHttpAsyncModel<BaseResponesBe
 
     private BaseResponesBean getDatas() {
         Log.e(TAG, "getDatas: id: " + id );
-        //http://223.100.3.171:10007/integrationPreAssessment/setAssessment/219460?token=//
-//        http://223.100.3.171:10007/integrationPreAssessment/assessmentDetail/219460
+        //http://223.100.3.171:10007/integrationPreAssessment/assessmentDetail/219157
         String url = BaseApplication.url + "/integrationPreAssessment/assessmentDetail/" + id + "?token=" + BaseApplication.token;
-        BaseResponesBean bean = HttpJsonInterface.getInstance().doGet(url);
+        BaseResponesBean bean = HttpJsonInterface.getInstance().doPost(url,params);
         if(bean.getJson() != null){
             bean.setDataholder(bean.getJsonString());
         }

@@ -2,17 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/ten"
-    android:layout_marginRight="@dimen/ten"
-    android:layout_marginTop="@dimen/ten"
+    android:layout_margin="10dp"
     android:background="@drawable/shape_cset_white_divider"
     android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/sp_laomo"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
     <FrameLayout
         android:id="@+id/fl_switch"
@@ -52,30 +45,6 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rl_switch2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="7dp"
-            android:layout_marginTop="7dp"
-            android:visibility="gone">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/up_info" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
     </FrameLayout>
 
 
@@ -111,7 +80,7 @@
                     android:id="@+id/tv_equal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="部门"
+                    android:text="月份"
                     android:textColor="@color/blue"
                     android:textSize="16sp" />
 
@@ -123,7 +92,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="姓名"
+                    android:text="部门"
                     android:textColor="@color/blue"
                     android:textSize="16sp" />
 
@@ -216,17 +185,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="14dp"
                 android:background="@drawable/shape_searchdept">
 
                 <TextView
                     android:id="@+id/tv_cadre"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="7dp"
                     android:hint="请选择部门"
-                    android:textSize="14dp"
-                    android:layout_margin="6dp"/>
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="7dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/filter_pulldown_" />
 
             </RelativeLayout>
 
@@ -272,7 +250,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="14dp"
             android:layout_marginTop="14dp"
             android:background="@drawable/shape_searchdept"
             android:padding="7dp">
@@ -305,7 +283,7 @@
         <TextView
             android:id="@+id/tv_search"
             android:layout_width="168dp"
-            android:layout_height="28dp"
+            android:layout_height="24dp"
             android:background="@mipmap/btn_search"
             android:gravity="center"
             android:paddingLeft="18dp"

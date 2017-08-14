@@ -1,14 +1,20 @@
 package com.xianzhi.integration.fragment.csettings;
 
-import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.xianzhi.integration.R;
@@ -50,6 +56,9 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
     @BindView(R.id.listView)
     ListView listView;
     Unbinder unbinder;
+    @BindView(R.id.sp_laomo)
+    Spinner spLaomo;
+    Unbinder unbinder1;
     private SecTreeBean secTreeBean;
     private SecEditBean secEditBean;
     private SecEditAdapter adapter;
@@ -57,8 +66,8 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
     private List<String> paramsTemp = new ArrayList();
     private List<BasicNameValuePair> form = new ArrayList();
     private List<DepartBean> departBeanList;
-    public String code, id, level, pid, year, name, search_dept_name;
-    public String levelTemp, rename, addName;
+    public String code, id, level, pid, year, name, search_dept_name, levelTemp, rename, addName;
+    public int currentLevel = 0;
 
     @Override
     public void onStart() {
@@ -70,14 +79,13 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
     public View initView() {
         View view = View.inflate(getActivity(), R.layout.frag_security_edit, null);
         unbinder = ButterKnife.bind(this, view);
-
-        SecActivity activity = (SecActivity) getActivity();
-
         return view;
     }
 
     @Override
     protected void initData() {
+
+        tvCadre.setBackground(spLaomo.getBackground());
         adapter = new SecEditAdapter(getActivity(), this);
         listView.setDivider(null);
         listView.setSelector(new ColorDrawable());
@@ -134,7 +142,7 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
                     break;
                 case SettingsModelFactory.SEC_EDIT:
                     secEditBean = FastJsonUtil.getObject(result.getDataholder().toString(), SecEditBean.class);
-                    adapter.addData(secEditBean.getPage().getList());
+                    adapter.addData(secEditBean.getPage().getList(), currentLevel);
                     break;
                 case SettingsModelFactory.SEC_EDIT_RENAME:
                     refreshPage();
@@ -143,7 +151,7 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
                     refreshPage();
                     break;
                 case SettingsModelFactory.SEC_EDIT_ADD:
-                    Log.e(TAG, "请求成功 " );
+                    Log.e(TAG, "请求成功 ");
                     refreshPage();
                     break;
             }
@@ -169,6 +177,7 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
                 //更新pid
 //                pid = node.getpId() + "";
                 pid = node.getId() + "";
+                currentLevel = node.getLevel();
                 //实际得到的level值和传递的不一样,自己算一下
                 if (node.getLevel() == 1) {
                     levelTemp = 2 + "";
@@ -255,20 +264,14 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
      * 修改表格的名称
      */
     private void changeItemName() {
-        final EditText editText = new EditText(getActivity());
-        new AlertDialog.Builder(getActivity())
-                .setTitle("输入新条目名称")
-                .setView(editText)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        rename = editText.getText().toString().trim();
-                        updateData();
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create()
-                .show();
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                rename = dialogEdt.getText().toString().trim();
+                updateData();
+            }
+        };
+        SettingsDialog dialog = new SettingsDialog(getActivity(), "编辑条目", "输入条目名称", listener, false);
     }
 
     /**
@@ -296,24 +299,14 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
      * 添加要增加的条目数据
      */
     public void addItem() {
-        Log.e(TAG, "addItem: 执行了");
-
-        final EditText editText = new EditText(getActivity());
-        new AlertDialog.Builder(getActivity())
-                .setTitle("新增条目")
-                .setView(editText)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        addName = editText.getText().toString().trim();
-                        setNewItem();
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create()
-                .show();
-
-
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                addName = dialogEdt.getText().toString().trim();
+                setNewItem();
+            }
+        };
+        SettingsDialog dialog = new SettingsDialog(getActivity(), "新条目", "输入条目名称", listener, false);
     }
 
     /**
@@ -343,6 +336,37 @@ public class SecEditFragment extends BaseFragment implements ModelCompleteCallba
 
         model = SettingsModelFactory.getModelList(SettingsModelFactory.SEC_EDIT_ADD, getActivity(), this, form);
         model.excuteParams(new SecEditBean());
+    }
+
+    /**
+     * AlertDialog样式
+     */
+    private EditText dialogEdt;
+
+    private class SettingsDialog {
+        public SettingsDialog(Context context, String title, String hint, DialogInterface.OnClickListener listener, boolean isSingle) {
+
+            View edView = LayoutInflater.from(context).inflate(R.layout.layout_dialog_edittext, null, false);
+            dialogEdt = (EditText) edView.findViewById(R.id.ed_cus);
+            dialogEdt.setHint(hint);
+            dialogEdt.setBackgroundResource(R.drawable.shape_cadre_edittext);
+
+            AlertDialog dialog = new AlertDialog.Builder(context)
+                    .setTitle(title)
+                    .setView(edView)
+                    .setPositiveButton("确定", listener)
+                    .setNegativeButton("取消", null)
+                    .show();
+
+            Button mPositiveBtn = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            mPositiveBtn.setTextColor(context.getResources().getColor(R.color.orange));
+
+            Button mNegativeBtn = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+            mNegativeBtn.setTextColor(context.getResources().getColor(R.color.blue1));
+            if (isSingle == true) {
+                mNegativeBtn.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 
 }

@@ -15,7 +15,6 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/ten"
         android:divider="@color/line_gray"
-        android:listSelector="@drawable/shape_cadre_nodivider"
         android:scrollbars="none" />
 
 </LinearLayout>

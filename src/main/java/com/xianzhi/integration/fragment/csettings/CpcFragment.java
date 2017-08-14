@@ -2,14 +2,18 @@ package com.xianzhi.integration.fragment.csettings;
 
 import android.app.AlertDialog;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.xianzhi.integration.R;
@@ -59,14 +63,14 @@ public class CpcFragment extends BaseFragment implements ModelCompleteCallback<B
     LinearLayout llName;
     @BindView(R.id.rl_switch)
     RelativeLayout rlSwitch;
+    @BindView(R.id.rl_switch2)
+    RelativeLayout rlSwitch2;
     @BindView(R.id.tv_cadre)
     TextView tvCadre;
-    Unbinder unbinder1;
     @BindView(R.id.ed_name)
     EditText edName;
     @BindView(R.id.ll_search)
     LinearLayout llSearch;
-    Unbinder unbinder2;
     @BindView(R.id.fl_switch)
     FrameLayout flSwitch;
     @BindView(R.id.tv_submit)
@@ -75,16 +79,17 @@ public class CpcFragment extends BaseFragment implements ModelCompleteCallback<B
     TextView tvCancel;
     @BindView(R.id.line_gray)
     View lineGray;
-    Unbinder unbinder3;
     @BindView(R.id.ll_set_cadre)
     RelativeLayout llSetCadre;
+    @BindView(R.id.sp_laomo)
+    Spinner spLaomo;
 
     private CpcBean cpcBean;
     private List<CpcBean.PageBean.ListBean> data;
     private CpcAdapter adapter;
-    private boolean filterIsOpen = false;
+    private boolean isShow = false;
     private List<NameValuePair> params = new ArrayList<>();
-    private String departmentId, dept_code, search_dept_name, name, goNumber, pageNumber;
+    private String departmentId, dept_code, search_dept_name, name;
     private List<DepartBean> departBeanList;
 
 
@@ -108,6 +113,7 @@ public class CpcFragment extends BaseFragment implements ModelCompleteCallback<B
     protected void initData() {
         adapter = new CpcAdapter(getActivity(), this);
 
+        tvCadre.setBackground(spLaomo.getBackground());
         listView.setDivider(null);
         listView.setSelector(new ColorDrawable());
         listView.setAdapter(adapter);
@@ -176,16 +182,22 @@ public class CpcFragment extends BaseFragment implements ModelCompleteCallback<B
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fl_switch:
-                if (filterIsOpen == false) {
+                if (isShow == false) {
+                    flSwitch.setBackgroundResource(R.drawable.shape_filter_yellow_noradius);
+                    rlSwitch.setVisibility(View.GONE);
+                    rlSwitch2.setVisibility(View.VISIBLE);
+
                     rlFilter.setVisibility(View.VISIBLE);
                     lineGray.setVisibility(View.VISIBLE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_filter_noradius);
-                    filterIsOpen = true;
+                    isShow = true;
                 } else {
                     rlFilter.setVisibility(View.GONE);
                     lineGray.setVisibility(View.GONE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_cadre_divider);
-                    filterIsOpen = false;
+
+                    rlSwitch2.setVisibility(View.GONE);
+                    rlSwitch.setVisibility(View.VISIBLE);
+                    flSwitch.setBackgroundResource(R.drawable.shape_cset_white_divider);
+                    isShow = false;
                 }
                 break;
             case R.id.tv_submit:
@@ -305,8 +317,7 @@ public class CpcFragment extends BaseFragment implements ModelCompleteCallback<B
                 activity.postName = v.getTag(R.id.tag_cadre_post_name) + "";
                 activity.setFragment(activity.CPC_SET_FRAG);
                 break;
-            default:
-                break;
         }
     }
+
 }

@@ -59,14 +59,14 @@ public class CswFragment extends BaseFragment implements ModelCompleteCallback<B
     LinearLayout llName;
     @BindView(R.id.rl_switch)
     RelativeLayout rlSwitch;
+    @BindView(R.id.rl_switch2)
+    RelativeLayout rlSwitch2;
     @BindView(R.id.tv_cadre)
     TextView tvCadre;
-    Unbinder unbinder1;
     @BindView(R.id.ed_name)
     EditText edName;
     @BindView(R.id.ll_search)
     LinearLayout llSearch;
-    Unbinder unbinder2;
     @BindView(R.id.fl_switch)
     FrameLayout flSwitch;
     @BindView(R.id.tv_submit)
@@ -75,14 +75,13 @@ public class CswFragment extends BaseFragment implements ModelCompleteCallback<B
     TextView tvCancel;
     @BindView(R.id.line_gray)
     View lineGray;
-    Unbinder unbinder3;
     @BindView(R.id.ll_set_cadre)
     RelativeLayout llSetCadre;
 
     private CswBean cswBean;
     private List<CswBean.PageBean.ListBean> data;
     private CswAdapter adapter;
-    private boolean filterIsOpen = false;
+    private boolean isShow = false;
     private List<NameValuePair> params = new ArrayList<>();
     private String departmentId, dept_code, search_dept_name, name, goNumber, pageNumber;
     private List<DepartBean> departBeanList;
@@ -167,16 +166,22 @@ public class CswFragment extends BaseFragment implements ModelCompleteCallback<B
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fl_switch:
-                if (filterIsOpen == false) {
+                if (isShow == false) {
+                    flSwitch.setBackgroundResource(R.drawable.shape_filter_yellow_noradius);
+                    rlSwitch.setVisibility(View.GONE);
+                    rlSwitch2.setVisibility(View.VISIBLE);
+
                     rlFilter.setVisibility(View.VISIBLE);
                     lineGray.setVisibility(View.VISIBLE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_filter_noradius);
-                    filterIsOpen = true;
+                    isShow = true;
                 } else {
                     rlFilter.setVisibility(View.GONE);
                     lineGray.setVisibility(View.GONE);
-                    flSwitch.setBackgroundResource(R.drawable.shape_cadre_divider);
-                    filterIsOpen = false;
+
+                    rlSwitch2.setVisibility(View.GONE);
+                    rlSwitch.setVisibility(View.VISIBLE);
+                    flSwitch.setBackgroundResource(R.drawable.shape_cset_white_divider);
+                    isShow = false;
                 }
                 break;
             case R.id.tv_submit:

@@ -1,10 +1,13 @@
 package com.xianzhi.integration.fragment.csettings;
 
-import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,7 +40,7 @@ import butterknife.Unbinder;
 
 public class SecFragment extends BaseFragment implements ModelCompleteCallback<BaseResponesBean>, SecAdapter.SecurityClickListerner {
 
-//    private int frag = 0;
+    //    private int frag = 0;
     private static final String TAG = "SFragHD";
     @BindView(R.id.sec_listView)
     ListView listView;
@@ -107,6 +110,7 @@ public class SecFragment extends BaseFragment implements ModelCompleteCallback<B
         }
         progressDialog.dismiss();
     }
+
     /**
      * Item内点击事件
      */
@@ -148,20 +152,15 @@ public class SecFragment extends BaseFragment implements ModelCompleteCallback<B
      * 修改表格的名称
      */
     private void changeFormName() {
-        final EditText editText = new EditText(getActivity());
-        new AlertDialog.Builder(getActivity())
-                .setTitle("输入新表名")
-                .setView(editText)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        rename = editText.getText().toString().trim();
-                        updateData();
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create()
-                .show();
+
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                rename = dialogEdt.getText().toString().trim();
+                updateData();
+            }
+        };
+        SettingsDialog dialog = new SettingsDialog(getActivity(), "编辑表格名称", "输入表名", listener, false);
     }
 
     /**
@@ -197,12 +196,47 @@ public class SecFragment extends BaseFragment implements ModelCompleteCallback<B
     }
 
     @Override
-    public void setListener() {}
+    public void setListener() {
+    }
+
     @Override
-    public void onClick(View v) {}
+    public void onClick(View v) {
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    /**
+     * AlertDialog样式
+     */
+    private EditText dialogEdt;
+
+    private class SettingsDialog {
+        public SettingsDialog(Context context, String title, String hint, DialogInterface.OnClickListener listener, boolean isSingle) {
+
+            View edView = LayoutInflater.from(context).inflate(R.layout.layout_dialog_edittext, null, false);
+            dialogEdt = (EditText) edView.findViewById(R.id.ed_cus);
+            dialogEdt.setHint(hint);
+            dialogEdt.setBackgroundResource(R.drawable.shape_cadre_edittext);
+
+            AlertDialog dialog = new AlertDialog.Builder(context)
+                    .setTitle(title)
+                    .setView(edView)
+                    .setPositiveButton("确定", listener)
+                    .setNegativeButton("取消", null)
+                    .show();
+
+            Button mPositiveBtn = dialog.getButton(android.support.v7.app.AlertDialog.BUTTON_POSITIVE);
+            mPositiveBtn.setTextColor(context.getResources().getColor(R.color.orange));
+
+            Button mNegativeBtn = dialog.getButton(android.support.v7.app.AlertDialog.BUTTON_NEGATIVE);
+            mNegativeBtn.setTextColor(context.getResources().getColor(R.color.blue1));
+            if (isSingle == true) {
+                mNegativeBtn.setVisibility(View.INVISIBLE);
+            }
+        }
     }
 }

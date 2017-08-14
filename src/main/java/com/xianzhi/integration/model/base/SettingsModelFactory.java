@@ -6,12 +6,14 @@ import com.xianzhi.integration.presenter.AddSecurityPresenter;
 import com.xianzhi.integration.presenter.CpcDetailPresenter;
 import com.xianzhi.integration.presenter.CadrePreCheckPresenter;
 import com.xianzhi.integration.presenter.CadreSelfWorkPresenter;
+import com.xianzhi.integration.presenter.CpcDetailRefreshPresenter;
 import com.xianzhi.integration.presenter.CpcDynamicPresenter;
 import com.xianzhi.integration.presenter.CpcDynamicRePresenter;
 import com.xianzhi.integration.presenter.CpcDynamicUpPresenter;
 import com.xianzhi.integration.presenter.CpcMultiAddPresenter;
 import com.xianzhi.integration.presenter.CpcMultiRePresenter;
 import com.xianzhi.integration.presenter.CpcMultiUpPresenter;
+import com.xianzhi.integration.presenter.CpcReusePresenter;
 import com.xianzhi.integration.presenter.CpcSetAddPresenter;
 import com.xianzhi.integration.presenter.CpcSetPresenter;
 import com.xianzhi.integration.presenter.CpcMultiPresenter;
@@ -25,6 +27,7 @@ import com.xianzhi.integration.presenter.SecDetailPresenter;
 import com.xianzhi.integration.presenter.SecEditPresenter;
 import com.xianzhi.integration.presenter.SecPresenter;
 import com.xianzhi.integration.presenter.SecRenamePresenter;
+import com.xianzhi.integration.presenter.SecReusePresenter;
 import com.xianzhi.integration.presenter.SecTreePresenter;
 import com.xianzhi.integration.presenter.CswFilterPresenter;
 import com.xianzhi.integration.presenter.CswSetPresenter;
@@ -45,6 +48,7 @@ public class SettingsModelFactory {
     public static final int SEC_TREE = 103;
     public static final int SEC_EDIT = 104;
     public static final int SEC_ADD = 105;
+    public static final int SEC_ADD_YEAR = 1051;
     public static final int SEC_EDIT_RENAME = 106;
     public static final int SEC_EDIT_DEL = 107;
     public static final int SEC_EDIT_ADD = 108;
@@ -90,6 +94,10 @@ public class SettingsModelFactory {
                 break;
             case CPC_DYNAMIC:
                 model = new CpcDynamicPresenter(model_id, context, result);
+                break;
+            //复用预考核信息
+            case SEC_ADD_YEAR:
+                model = new SecReusePresenter(model_id, context, result);
                 break;
         }
         return model;
@@ -147,7 +155,7 @@ public class SettingsModelFactory {
                 break;
             //2.1.1按月份刷新界面,服务端暂时没有更新
             case CPC_DETAIL_REFRESH:
-                model = new CpcDetailPresenter(model_id, context, result, params);
+                model = new CpcDetailRefreshPresenter(model_id, context, result, params);
                 break;
             //预考核设置
             case CPC_SET:
@@ -184,7 +192,7 @@ public class SettingsModelFactory {
                 break;
             //复用预考核信息
             case CPC_REUSE:
-                model = new CpcDynamicUpPresenter(model_id, context, result, params);
+                model = new CpcReusePresenter(model_id, context, result, params);
                 break;
 
 

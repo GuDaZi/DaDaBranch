@@ -6,7 +6,7 @@ import java.util.List;
  * Created by TJTJL on 2017/8/8.
  */
 
-public class CpcReuseBean {
+public class SecReuseBean {
 
     private List<YearListBean> yearList;
 

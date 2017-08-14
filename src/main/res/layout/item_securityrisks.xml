@@ -8,16 +8,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="9dp"
-        android:background="@drawable/shape_cadre_divider"
+        android:layout_marginBottom="@dimen/nine"
+        android:background="@drawable/shape_cset_white_divider"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginBottom="@dimen/fourteen"
+            android:layout_marginLeft="@dimen/twenty_three"
+            android:layout_marginTop="@dimen/fourteen"
             android:orientation="horizontal">
 
             <TextView
@@ -31,7 +31,7 @@
                 android:id="@+id/tv_formname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="26dp"
+                android:layout_marginRight="@dimen/sixteen"
                 android:text="我是传说中的安全表格"
                 android:textColor="@color/black"
                 android:textSize="@dimen/fourteen" />
@@ -41,8 +41,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:layout_marginLeft="23dp"
+            android:layout_marginBottom="@dimen/fourteen"
+            android:layout_marginLeft="@dimen/twenty_three"
             android:orientation="horizontal">
 
             <TextView
@@ -56,7 +56,7 @@
                 android:id="@+id/tv_year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="26dp"
+                android:layout_marginRight="@dimen/sixteen"
                 android:text="2016"
                 android:textColor="@color/black"
                 android:textSize="@dimen/fourteen" />
@@ -66,8 +66,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
-            android:layout_marginLeft="23dp"
+            android:layout_marginBottom="@dimen/fourteen"
+            android:layout_marginLeft="@dimen/twenty_three"
             android:orientation="horizontal">
 
             <TextView
@@ -81,7 +81,6 @@
                 android:id="@+id/tv_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="26dp"
                 android:text="待发布"
                 android:textColor="@color/black"
                 android:textSize="@dimen/fourteen" />
@@ -91,13 +90,13 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_marginBottom="14dp"
+            android:layout_marginBottom="@dimen/fourteen"
             android:background="@color/line_gray"></View>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="14dp"
+            android:layout_marginBottom="@dimen/fourteen"
             android:gravity="right|center_vertical"
             android:orientation="horizontal">
 
@@ -105,7 +104,7 @@
                 android:id="@+id/tv_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="@dimen/ten"
                 android:background="@mipmap/blue_button"
                 android:gravity="center"
                 android:focusable="false"
@@ -118,7 +117,7 @@
                 android:id="@+id/tv_rename"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="@dimen/ten"
                 android:background="@mipmap/blue_button"
                 android:gravity="center"
                 android:focusable="false"
@@ -131,7 +130,7 @@
                 android:id="@+id/tv_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="@dimen/ten"
                 android:background="@mipmap/yellow_button"
                 android:gravity="center"
                 android:focusable="false"

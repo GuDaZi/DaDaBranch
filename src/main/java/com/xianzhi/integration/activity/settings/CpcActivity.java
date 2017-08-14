@@ -17,7 +17,7 @@ import com.xianzhi.integration.fragment.csettings.CpcFragment;
 import com.xianzhi.integration.fragment.csettings.CpcMultiFragment;
 import com.xianzhi.integration.fragment.csettings.CpcReuseFragment;
 import com.xianzhi.integration.fragment.csettings.CpcSetFragment;
-import com.xianzhi.integration.view.CadrePreCheckPopup;
+import com.xianzhi.integration.view.CpcPopup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class CpcActivity extends BaseActivity {
     @BindView(R.id.tv_edit)
     TextView tvEdit;
 
-    private CadrePreCheckPopup popup;
+    private CpcPopup popup;
     private List<BaseFragment> list;
     public static final int CPC_FRAG = 0;
     public static final int CPC_REUSE_FRAG = 1;
@@ -148,7 +148,7 @@ public class CpcActivity extends BaseActivity {
             tvTitle.setText("月度预考核表");
             ivSoso.setImageResource(R.mipmap.btn_more);
             ivSoso.setVisibility(View.VISIBLE);
-            popup = new CadrePreCheckPopup(this);
+            popup = new CpcPopup(this);
             tvEdit.setVisibility(View.GONE);
         } else if (i == CPC_SET_FRAG) {
             tvTitle.setText("考核设置");
@@ -166,6 +166,10 @@ public class CpcActivity extends BaseActivity {
             ivSoso.setVisibility(View.GONE);
         } else if (i == CPC_DETAIL_FRAG) {
             tvTitle.setText("表格详情");
+            tvEdit.setVisibility(View.GONE);
+            ivSoso.setVisibility(View.GONE);
+        } else if (i == CPC_REUSE_FRAG) {
+            tvTitle.setText("复用考核信息");
             tvEdit.setVisibility(View.GONE);
             ivSoso.setVisibility(View.GONE);
         }

@@ -1,12 +1,13 @@
 package com.xianzhi.integration.fragment.csettings;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -66,6 +67,8 @@ public class CpcSetFragment extends BaseFragment implements ModelCompleteCallbac
     private List<CpcSetBean.ListBean> list;
     private String assessmentArray, ids, userId, month, check_item;
     private HashMap<String,String> map = new HashMap<>();
+    private EditText editName;
+    private EditText editCount;
 
 
     @Override
@@ -171,32 +174,15 @@ public class CpcSetFragment extends BaseFragment implements ModelCompleteCallbac
                     adapter.addData(list);
                     break;
                 case SettingsModelFactory.CPC_SET_UP:
-                    View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_success, null, false);
-                    new AlertDialog.Builder(getActivity())
-                            .setView(view)
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    getActivity().onBackPressed();
-                                }
-                            })
-                            .create()
-                            .show();
-                    break;
                 case SettingsModelFactory.CPC_SET_ADD_DYNAMIC:
-                    View view1 = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_success, null, false);
-                    new AlertDialog.Builder(getActivity())
-                            .setView(view1)
-                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    getActivity().onBackPressed();
-                                }
-                            })
-                            .create()
-                            .show();
+                    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            getActivity().onBackPressed();
+                        }
+                    };
+                    SettingsDialog dialog = new SettingsDialog("设置成功",listener);
                     break;
-
             }
         }
         if (progressDialog.isShowing()) {
@@ -208,7 +194,7 @@ public class CpcSetFragment extends BaseFragment implements ModelCompleteCallbac
      * 时间选择器
      */
     private void selectTime(final View v) {
-        new YearMonthPickerDialog(getActivity(), AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
+        new YearMonthPickerDialog(getActivity(), android.app.AlertDialog.THEME_HOLO_LIGHT, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 calendar.set(Calendar.YEAR, year);
@@ -305,23 +291,15 @@ public class CpcSetFragment extends BaseFragment implements ModelCompleteCallbac
     private String newItemNum;
     public void addDynamicItem() {
         //这里要添加一个AlterDialog
-        final View view = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_dynamic, null, false);
-        final EditText itemName = (EditText) view.findViewById(R.id.ed_itemName);
-        final EditText itemTaskNum = (EditText) view.findViewById(R.id.ed_dynamicTask);
-        new AlertDialog.Builder(getActivity())
-                .setTitle("添加动态任务")
-                .setView(view)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        newItem = itemName.getText().toString().trim();
-                        newItemNum = itemTaskNum.getText().toString().trim();
-                        updateNewItem(newItem, newItemNum);
-                    }
-                })
-                .setNegativeButton("取消", null)
-                .create()
-                .show();
+        DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                newItem = editName.getText().toString().trim();
+                newItemNum = editCount.getText().toString().trim();
+                updateNewItem(newItem, newItemNum);
+            }
+        };
+        SettingsDialog dialog = new SettingsDialog("添加动态任务","输入任务名称",listener,false);
     }
 
     /**
@@ -398,4 +376,50 @@ public class CpcSetFragment extends BaseFragment implements ModelCompleteCallbac
         model.excuteParams(new CpcSetBean());
     }
 
+    /**
+     * dialog
+     */
+    public class SettingsDialog {
+
+        public SettingsDialog(String title, String hint, DialogInterface.OnClickListener listener, boolean isSingle){
+
+            View edView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_dynamic, null, false);
+            editName = (EditText) edView.findViewById(R.id.ed_cus);
+            editName.setHint(hint);
+            editName.setBackgroundResource(R.drawable.shape_cadre_edittext);
+            editCount = (EditText) edView.findViewById(R.id.ed_dynamicTask);
+            editCount.setBackgroundResource(R.drawable.shape_cadre_edittext);
+
+            AlertDialog dialog = new AlertDialog.Builder(getActivity())
+                    .setTitle(title)
+                    .setView(edView)
+                    .setPositiveButton("确定", listener)
+                    .setNegativeButton("取消", null)
+                    .show();
+
+            Button mPositiveBtn = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+            mPositiveBtn.setTextColor(getActivity().getResources().getColor(R.color.orange));
+
+            Button mNegativeBtn = dialog.getButton(AlertDialog.BUTTON_NEGATIVE);
+            mNegativeBtn.setTextColor(getActivity().getResources().getColor(R.color.blue1));
+            if (isSingle == true) {
+                mNegativeBtn.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        //dialog单按钮的提示框
+        public SettingsDialog(String content, DialogInterface.OnClickListener listener ) {
+            View sucView = LayoutInflater.from(getActivity()).inflate(R.layout.layout_dialog_success, null, false);
+            TextView tvContent = (TextView) sucView.findViewById(R.id.tv_content);
+            tvContent.setText(content);
+            android.support.v7.app.AlertDialog dialog = new android.support.v7.app.AlertDialog.Builder(getActivity())
+                    .setView(sucView)
+                    .setPositiveButton("确定", listener)
+                    .show();
+
+            Button mPositiveBtn = dialog.getButton(android.support.v7.app.AlertDialog.BUTTON_POSITIVE);
+            mPositiveBtn.setTextColor(getActivity().getResources().getColor(R.color.orange));
+        }
+
+    }
 }

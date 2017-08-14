@@ -199,5 +199,6 @@
     <string name="departcheck">部门考核设置</string>
     <string name="checkduration">考核周期设置</string>
     <string name="set_success">设置成功</string>
+    <string name="switch_item">选择表格</string>
 
 </resources>

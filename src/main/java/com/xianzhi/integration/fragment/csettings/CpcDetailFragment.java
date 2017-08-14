@@ -124,7 +124,6 @@ public class CpcDetailFragment extends BaseFragment implements ModelCompleteCall
             case R.id.tv_return:
                 getActivity().onBackPressed();
                 break;
-
         }
     }
 

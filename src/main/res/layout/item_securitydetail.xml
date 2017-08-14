@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="9dp"
-        android:background="@drawable/shape_cadre_divider"
+        android:background="@drawable/shape_cset_white_divider"
         android:orientation="vertical">
 
         <!--<LinearLayout-->
